@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <title>SUPLEMENTS</title>
+    </head>
+    <body>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"> Name </th>
+                    <th scope="col"> Category </th>
+                    <th scope="col"> Price </th>
+                    <th scope="col"> Cod </th>
+                    
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="suplement : ${listarSuplements}">
+                    <td th:text="${suplement.name}"> </td>
+                    <td th:text="${suplement.category}"> </td>
+                    <td th:text="${suplement.price}"> </td>
+                    <td th:text="${suplement.cod}"> </td>
+                    <td sec:authorize="hasRole('ROLE_ADMIN')"> <a th:href="@{delete/{id}(id = ${suplement.id})}"> <button type="button" class="btn btn-danger">Excluir</button></a></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </body>
+    </body>
+</html>
